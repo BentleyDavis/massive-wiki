@@ -2,4 +2,4 @@
   ignore = "/bin/false"
   base = ".massivewikibuilder11ty"
   publish = ".massivewikibuilder11ty/output"
-  command = "eleventy"
+  command = "npm run build"
