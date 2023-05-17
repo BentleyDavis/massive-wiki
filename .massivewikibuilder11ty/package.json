@@ -5,7 +5,7 @@
   },
   "scripts": {
     "start": "eleventy --serve",
-    "build": "DEBUG=Eleventy* eleventy"
+    "build": "eleventy"
   },
   "dependencies": {
     "markdown-it": "^13.0.1",
