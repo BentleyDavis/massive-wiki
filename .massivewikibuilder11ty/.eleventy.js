@@ -12,8 +12,8 @@ module.exports = function (eleventyConfig) {
     // copy statis files
     eleventyConfig.addPassthroughCopy({ "../.massivewikibuilder11ty/static/": "/" });
 
-    //copy over all markdown files 
-    eleventyConfig.addPassthroughCopy("../**/*.md");
+    // //copy over all markdown files 
+    // eleventyConfig.addPassthroughCopy("../**/*.md");
 
     // const markdownItEmoji = require("markdown-it-emoji");
     // const markdownItObsidianImages = require('markdown-it-obsidian-images');
