@@ -1,7 +1,7 @@
 [build]
   ignore = "/bin/false"
   base = ".massivewikibuilder11ty"
-  publish = ".massivewikibuilder11ty/output"
+  publish = "output"
   command = "npm run build"
 
   [build.environment]
