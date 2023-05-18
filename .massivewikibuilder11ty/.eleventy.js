@@ -1,41 +1,29 @@
+const wikiTransforms = require('./utils/wikiTransforms.js');
+
 module.exports = function (eleventyConfig) {
 
-    const wikilinkRegex = /\[\[([^\]]+)\]\]/g;
-    const wikilinkReplace = '<a href="/$1">$1</a>';
+    // Links and images
+    eleventyConfig.addTransform("wikiTransforms", wikiTransforms);
 
-    eleventyConfig.addTransform("massive-wiki", async function (content) {
-        // console.log(this.page.inputPath, this.page.outputPath, content.length);
-        result = content.replace(wikilinkRegex, wikilinkReplace);
-        return result;
-    });
-
-    // copy statis files
+    // copy static files
     eleventyConfig.addPassthroughCopy({ "../.massivewikibuilder11ty/static/": "/" });
 
 
-    //Globbing pattern to match a directory named "assets" unless it is in the sub directory named "mouse"
-    // eleventyConfig.addPassthroughCopy({
-    //     "../.massivewikibuilder11ty/static/": {
-    //         glob: "**/!(mouse)/**"
-
-
-
-
-
-    //copy over all markdown files 
-    eleventyConfig.addPassthroughCopy("../**/*.md", {
-        filter: "**!(massivewikibuilder)**"
-    });
-
-    // const markdownItEmoji = require("markdown-it-emoji");
-    // const markdownItObsidianImages = require('markdown-it-obsidian-images');
-    // const wikilinks = require('markdown-it-wikilinks');
-    // eleventyConfig.amendLibrary("md", mdLib => mdLib.use(wikilinks).use(markdownItEmoji).use(markdownItObsidianImages));
-    // eleventyConfig.setLibrary('md', md);
+    // //copy over all markdown files 
+    // eleventyConfig.addPassthroughCopy('../**/*.md', {
+    //     expand: true, // expand symbolic links
+    //     filter: "!*", // copy all files
+    // }
+    //     // , {
+    //     //     filter: []//, '!**massivewikibuilder**']//, '!**/node_modules/**', '!**/output/**', '!**/static/**', '!**/obsidian/**', '!**/.obsidian/**', '!**/.massivewikibuilder/**', '!**/.massivewikibuilder11ty/**', '!**/.git/**', '!**/.gitignore/**', '!**/.gitattributes/**', '!**/.github/**', '!**/.github/w]
+    //     //     //filter: (a, b, c) => { console.log(a, b, c); return true; },
+    //     // }
+    // );
 
     for (const ignore of [
         '../.massivewikibuilder/**',
         '../.massivewikibuilder11ty/output/**',
+        '../.massivewikibuilder11ty/README.md',
         '../.massivewikibuilder11ty/node_modules/**',
         '../.obsidian/**',
     ]) {
@@ -44,7 +32,7 @@ module.exports = function (eleventyConfig) {
     }
 
     return {
-        templateFormats: ['md'],
+        templateFormats: ['md', 'png'],
         dir: {
             input: '../',
             output: 'output',
@@ -55,8 +43,3 @@ module.exports = function (eleventyConfig) {
     }
 }
 
-    // config.addPassthroughCopy({ public: './' })
-
-    // config.setBrowserSyncConfig({
-    //   files: ['dist/**/*'],
-    // })

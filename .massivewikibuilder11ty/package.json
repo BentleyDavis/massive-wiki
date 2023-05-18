@@ -7,10 +7,5 @@
     "start": "eleventy --serve",
     "build": "eleventy"
   },
-  "dependencies": {
-    "markdown-it": "^13.0.1",
-    "markdown-it-emoji": "^2.0.2",
-    "markdown-it-obsidian-images": "^1.0.1",
-    "markdown-it-wikilinks": "^1.2.0"
-  }
+  "dependencies": {}
 }
