@@ -12,8 +12,20 @@ module.exports = function (eleventyConfig) {
     // copy statis files
     eleventyConfig.addPassthroughCopy({ "../.massivewikibuilder11ty/static/": "/" });
 
-    // //copy over all markdown files 
-    // eleventyConfig.addPassthroughCopy("../**/*.md");
+
+    //Globbing pattern to match a directory named "assets" unless it is in the sub directory named "mouse"
+    // eleventyConfig.addPassthroughCopy({
+    //     "../.massivewikibuilder11ty/static/": {
+    //         glob: "**/!(mouse)/**"
+
+
+
+
+
+    //copy over all markdown files 
+    eleventyConfig.addPassthroughCopy("../**/*.md", {
+        filter: "**!(massivewikibuilder)**"
+    });
 
     // const markdownItEmoji = require("markdown-it-emoji");
     // const markdownItObsidianImages = require('markdown-it-obsidian-images');
