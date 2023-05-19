@@ -13,5 +13,3 @@ Massive Wiki is a collection of open source practices and tools that helps you:
 Read more to [[Get Started with Massive Wiki]].
 
 We also have a [[Massive Wiki Conceptual Diagram]] which helps to illustrate how it works.
-
----
