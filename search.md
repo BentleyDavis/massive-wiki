@@ -1,5 +1,3 @@
 ---
 layout: search.html
 ---
-
-# Search
